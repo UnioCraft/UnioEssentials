@@ -3,4 +3,23 @@ database:
   port: 3306
   userName: test
   password: test
+
 server: Factions
+
+databaseInfos:
+  ozelesya:
+    dbName: factions
+    tableName: ozelesya
+    usernameColumn: player
+  credit:
+    dbName: genel
+    tableName: kredi
+    usernameColumn: isim
+  points:
+    dbName: factions
+    tableName: unio_points
+    usernameColumn: player
+  crates:
+    dbName: factions
+    tableName: kasalar
+    usernameColumn: player

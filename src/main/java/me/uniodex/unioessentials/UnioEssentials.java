@@ -5,6 +5,7 @@ import me.uniodex.unioessentials.commands.CommandUnioessentials;
 import me.uniodex.unioessentials.commands.CommandVote;
 import me.uniodex.unioessentials.managers.ConfigManager;
 import me.uniodex.unioessentials.managers.ConfigManager.Config;
+import me.uniodex.unioessentials.managers.SQLManager;
 import me.uniodex.unioessentials.utils.Utils;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,8 @@ public class UnioEssentials extends JavaPlugin {
 
     @Getter
     private ConfigManager configManager;
+    @Getter
+    private SQLManager sqlManager;
 
     public static String hataPrefix;
     public static String dikkatPrefix;
@@ -24,12 +27,18 @@ public class UnioEssentials extends JavaPlugin {
         configManager = new ConfigManager(this);
         initializePrefixes();
 
+        // Managers
+        sqlManager = new SQLManager(this);
+
+        // Listeners
+
+        // Commands
         getCommand("unioessentials").setExecutor(new CommandUnioessentials(this));
         getCommand("vote").setExecutor(new CommandVote(this));
     }
 
     public void onDisable() {
-
+        sqlManager.onDisable();
     }
 
     private void initializePrefixes() {
