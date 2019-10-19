@@ -18,6 +18,9 @@ commands:
     reload:
       usage: "&aKullanım: &6/ue reload"
       success: '%bilgiPrefix% UnioEssentials yapılandırması yenilendi.'
+    bungeeCommand:
+      usage: "&aKullanım: &6/ue bcmd <komut>"
+      success: "%bilgiPrefix% Komut BungeeCord'a başarıyla gönderildi."
 general:
   noPermission: "%hataPrefix% Bunun için izniniz yok!"
   invalidCommand: "%hataPrefix% Hatalı bir komut girdiniz!"

@@ -28,3 +28,7 @@ databaseInfos:
     dbName: factions
     tableName: kasalar
     usernameColumn: player
+
+settings:
+  silentBcmd: true
+  silentSendMessage: true

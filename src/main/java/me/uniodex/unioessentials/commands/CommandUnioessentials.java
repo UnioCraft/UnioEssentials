@@ -1,6 +1,7 @@
 package me.uniodex.unioessentials.commands;
 
 import me.uniodex.unioessentials.UnioEssentials;
+import me.uniodex.unioessentials.commands.subcommands.scBungeeCommand;
 import me.uniodex.unioessentials.commands.subcommands.scReload;
 import me.uniodex.unioessentials.commands.subcommands.scSendmessage;
 import org.bukkit.command.Command;
@@ -14,7 +15,7 @@ public class CommandUnioessentials implements CommandExecutor {
 
     private UnioEssentials plugin;
 
-    Map<String, SubCommand> subCommands = new HashMap<>();
+    private Map<String, SubCommand> subCommands = new HashMap<>();
 
     public CommandUnioessentials(UnioEssentials plugin) {
         this.plugin = plugin;
@@ -24,9 +25,11 @@ public class CommandUnioessentials implements CommandExecutor {
     private void initializeSubCommand() {
         scSendmessage scSendmessage = new scSendmessage(plugin);
         scReload scReload = new scReload(plugin);
+        scBungeeCommand scBungeeCommand = new scBungeeCommand(plugin);
 
         subCommands.put(scSendmessage.getName(), scSendmessage);
         subCommands.put(scReload.getName(), scReload);
+        subCommands.put(scBungeeCommand.getName(), scBungeeCommand);
     }
 
     @Override

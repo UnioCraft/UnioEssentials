@@ -31,7 +31,7 @@ public class RconManager {
         }
 
         for (String command : commandsInHold) {
-            useBungeeCommand(command);
+            sendBungeeCommand(command);
         }
     }
 
@@ -57,7 +57,7 @@ public class RconManager {
         }
     }
 
-    public void useBungeeCommand(String command) {
+    public void sendBungeeCommand(String command) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             Rcon rcon = getWorkingRcon();
             if (rcon == null) {

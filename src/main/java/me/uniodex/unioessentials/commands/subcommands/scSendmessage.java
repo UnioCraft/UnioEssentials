@@ -47,6 +47,8 @@ public class scSendmessage implements SubCommand {
 
         String msg = StringUtils.join(args, ' ', 2, args.length);
         player.sendMessage(UnioEssentials.bilgiPrefix + " " + ChatColor.translateAlternateColorCodes('&', msg));
-        sender.sendMessage(plugin.getMessage("commands.unioEssentials.sendMessage.success"));
+        if (!plugin.getConfig().getBoolean("settings.silentSendMessage")) {
+            sender.sendMessage(plugin.getMessage("commands.unioEssentials.sendMessage.success"));
+        }
     }
 }
