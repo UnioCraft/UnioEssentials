@@ -1,0 +1,6 @@
+database:
+  hostName: test.com
+  port: 3306
+  userName: test
+  password: test
+server: Factions

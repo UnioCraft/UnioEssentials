@@ -1,0 +1,12 @@
+name: UnioEssentials
+main: me.uniodex.unioessentials.UnioEssentials
+author: 'UnioDex'
+version: 1.0
+
+commands:
+  unioessentials:
+    aliases: [ue]
+    description: unioessentials
+  vote:
+    description: vote
+    aliases: [oy]

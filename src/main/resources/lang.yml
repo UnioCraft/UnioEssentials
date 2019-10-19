@@ -1,0 +1,15 @@
+commands:
+  vote:
+    voteMessage: |
+      &6
+      &6&lOy Verme Linkleri:
+      &4➸  &bwww.uniocraft.com/vote1
+      &4➸  &bwww.uniocraft.com/vote2
+      &4➸  &bwww.uniocraft.com/vote3
+      &4➸  &bwww.uniocraft.com/vote4
+      &6
+      &aOy vererek geçici uçuş süresi ve /puan kazanırsın!
+      &6
+  unioEssentials:
+    sendMessage:
+      usage: '&aKullanım: &6/ue sendmessage <mesaj>'
