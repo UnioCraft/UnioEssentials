@@ -1,6 +1,7 @@
 package me.uniodex.unioessentials;
 
 import lombok.Getter;
+import me.uniodex.unioessentials.commands.CommandUnioessentials;
 import me.uniodex.unioessentials.commands.CommandVote;
 import me.uniodex.unioessentials.managers.ConfigManager;
 import me.uniodex.unioessentials.managers.ConfigManager.Config;
@@ -23,6 +24,7 @@ public class UnioEssentials extends JavaPlugin {
         configManager = new ConfigManager(this);
         initializePrefixes();
 
+        getCommand("unioessentials").setExecutor(new CommandUnioessentials(this));
         getCommand("vote").setExecutor(new CommandVote(this));
     }
 
@@ -47,5 +49,9 @@ public class UnioEssentials extends JavaPlugin {
         if (configManager.getConfig(Config.LANG).getStringList(configSection) == null) return null;
 
         return Utils.colorizeMessages(configManager.getConfig(Config.LANG).getStringList(configSection));
+    }
+
+    public void reload() {
+        reloadConfig();
     }
 }

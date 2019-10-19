@@ -13,3 +13,16 @@ commands:
   unioEssentials:
     sendMessage:
       usage: '&aKullanım: &6/ue sendmessage <mesaj>'
+      success: '%bilgiPrefix% Mesaj başarıyla gönderildi.'
+      playerNotFound: '%hataPrefix% Belirttiğiniz oyuncu bulunamadı.'
+    reload:
+      usage: "&aKullanım: &6/ue reload"
+      success: '%bilgiPrefix% UnioEssentials yapılandırması yenilendi.'
+general:
+  noPermission: "%hataPrefix% Bunun için izniniz yok!"
+  invalidCommand: "%hataPrefix% Hatalı bir komut girdiniz!"
+prefix:
+  bilgiPrefix: "&b&lUNIOCRAFT &2->&a"
+  dikkatPrefix: "&b&lUNIOCRAFT &2->&6"
+  hataPrefix: "&b&lUNIOCRAFT &2->&c"
+  consolePrefix: "[UnioEssentials] "
