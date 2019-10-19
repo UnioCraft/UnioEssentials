@@ -1,15 +1,15 @@
 commands:
   vote:
     voteMessage: |
-      &6
+      &l &l
       &6&lOy Verme Linkleri:
       &4➸  &bwww.uniocraft.com/vote1
       &4➸  &bwww.uniocraft.com/vote2
       &4➸  &bwww.uniocraft.com/vote3
       &4➸  &bwww.uniocraft.com/vote4
-      &6
+      &l &l
       &aOy vererek geçici uçuş süresi ve /puan kazanırsın!
-      &6
+      &l &l
   unioEssentials:
     sendMessage:
       usage: '&aKullanım: &6/ue sendmessage <mesaj>'
@@ -21,6 +21,18 @@ commands:
 general:
   noPermission: "%hataPrefix% Bunun için izniniz yok!"
   invalidCommand: "%hataPrefix% Hatalı bir komut girdiniz!"
+security:
+  wrongIP: |
+    &4&l[UNIOCRAFT GÜVENLİK SİSTEMİ]
+    &c &c
+    &cOyuna girdiğiniz IP adresi ile siteye son giriş yaptığınız IP adresi farklı.
+    &cLütfen hesabın sahibi sizseniz siteden çıkış yapıp tekrar giriş yapınız.
+    &c &c
+    &cSite üzerinden 2 Aşamalı Doğrulamayı kaldırarak bu güvenlik önlemini kaldırabilirsiniz.
+    &cFakat kaldırırsanız hesap çalınmaları gibi durumda destek alamazsınız.
+    &c &c
+  kickAdmin: '&cBaşka bir IP adresinden giriş yaptığınız için yetkiniz alındı ve oyundan atıldınız.'
+  kickStaff: '&cBaşka bir IP adresinden giriş yaptığınız için oyundan atıldınız.'
 prefix:
   bilgiPrefix: "&b&lUNIOCRAFT &2->&a"
   dikkatPrefix: "&b&lUNIOCRAFT &2->&6"

@@ -3,10 +3,16 @@ package me.uniodex.unioessentials;
 import lombok.Getter;
 import me.uniodex.unioessentials.commands.CommandUnioessentials;
 import me.uniodex.unioessentials.commands.CommandVote;
+import me.uniodex.unioessentials.listeners.SecurityListeners;
 import me.uniodex.unioessentials.managers.ConfigManager;
 import me.uniodex.unioessentials.managers.ConfigManager.Config;
+import me.uniodex.unioessentials.managers.RconManager;
 import me.uniodex.unioessentials.managers.SQLManager;
+import me.uniodex.unioessentials.managers.SecurityManager;
 import me.uniodex.unioessentials.utils.Utils;
+import net.milkbowl.vault.permission.Permission;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -17,6 +23,13 @@ public class UnioEssentials extends JavaPlugin {
     private ConfigManager configManager;
     @Getter
     private SQLManager sqlManager;
+    @Getter
+    private RconManager rconManager;
+    @Getter
+    private SecurityManager securityManager;
+
+    @Getter
+    private Object permission;
 
     public static String hataPrefix;
     public static String dikkatPrefix;
@@ -27,10 +40,20 @@ public class UnioEssentials extends JavaPlugin {
         configManager = new ConfigManager(this);
         initializePrefixes();
 
+        if (Bukkit.getPluginManager().isPluginEnabled("Vault")) {
+            RegisteredServiceProvider<Permission> permissionProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
+            if (permissionProvider != null) {
+                permission = permissionProvider.getProvider();
+            }
+        }
+
         // Managers
         sqlManager = new SQLManager(this);
+        rconManager = new RconManager(this);
+        securityManager = new SecurityManager(this);
 
         // Listeners
+        new SecurityListeners(this);
 
         // Commands
         getCommand("unioessentials").setExecutor(new CommandUnioessentials(this));
@@ -39,6 +62,7 @@ public class UnioEssentials extends JavaPlugin {
 
     public void onDisable() {
         sqlManager.onDisable();
+        rconManager.onDisable();
     }
 
     private void initializePrefixes() {

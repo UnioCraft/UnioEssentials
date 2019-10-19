@@ -81,6 +81,19 @@
             <version>1.7.28</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>net.kronos.rkon.core</groupId>
+            <artifactId>Rcon</artifactId>
+            <version>LATEST</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>Vault</groupId>
+            <artifactId>Vault</artifactId>
+            <version>LATEST</version>
+            <scope>system</scope>
+            <systemPath>${library112}/Vault-1.6.7.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <properties>

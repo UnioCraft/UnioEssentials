@@ -52,7 +52,7 @@ public class SQLManager {
         pointsDataSource = new HikariDataSource(config);
     }
 
-    private Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
         return pointsDataSource.getConnection();
     }
 
@@ -62,13 +62,27 @@ public class SQLManager {
         }
     }
 
-    public boolean checkExist(String userName, String dbName, String tableName, String userNameColumn) {
-        String QUERY = "SELECT " + userNameColumn + " FROM `" + dbName + "`.`" + tableName + "` WHERE " + userNameColumn + " = '" + userName + "';";
+    public boolean check(String uniqueValue, String dbName, String tableName, String uniqueColumn, String booleanColumn) {
+        String QUERY = "SELECT " + uniqueColumn + " FROM `" + dbName + "`.`" + tableName + "` WHERE " + uniqueColumn + " = '" + uniqueValue + "';";
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement(QUERY);
             ResultSet res = statement.executeQuery();
             if (res.next()) {
-                return res.getString(userNameColumn) != null;
+                return res.getBoolean(booleanColumn);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean checkExist(String uniqueValue, String dbName, String tableName, String uniqueColumn) {
+        String QUERY = "SELECT " + uniqueColumn + " FROM `" + dbName + "`.`" + tableName + "` WHERE " + uniqueColumn + " = '" + uniqueValue + "';";
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(QUERY);
+            ResultSet res = statement.executeQuery();
+            if (res.next()) {
+                return res.getString(uniqueColumn) != null;
             }
         } catch (SQLException e) {
             e.printStackTrace();

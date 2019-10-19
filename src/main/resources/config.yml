@@ -4,6 +4,11 @@ database:
   userName: test
   password: test
 
+rcon:
+  hostName: test.com
+  port: 40336
+  password: test
+
 server: Factions
 
 databaseInfos:

@@ -3,6 +3,8 @@ main: me.uniodex.unioessentials.UnioEssentials
 author: 'UnioDex'
 version: 1.0
 
+softdepend: [Vault]
+
 commands:
   unioessentials:
     aliases: [ue]
