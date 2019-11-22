@@ -32,10 +32,11 @@ security:
     &cLütfen hesabın sahibi sizseniz siteden çıkış yapıp tekrar giriş yapınız.
     &c &c
     &cSite üzerinden 2 Aşamalı Doğrulamayı kaldırarak bu güvenlik önlemini kaldırabilirsiniz.
-    &cFakat kaldırırsanız hesap çalınmaları gibi durumda destek alamazsınız.
+    &cFakat kaldırırsanız hesap çalınmaları gibi durumlarda destek alamazsınız.
     &c &c
   kickAdmin: '&cBaşka bir IP adresinden giriş yaptığınız için yetkiniz alındı ve oyundan atıldınız.'
   kickStaff: '&cBaşka bir IP adresinden giriş yaptığınız için oyundan atıldınız.'
+  playerIsAlreadyOnline: '&cGirmeye çalıştığınız hesap zaten oyunda!'
 prefix:
   bilgiPrefix: "&b&lUNIOCRAFT &2->&a"
   dikkatPrefix: "&b&lUNIOCRAFT &2->&6"

@@ -32,3 +32,19 @@ databaseInfos:
 settings:
   silentBcmd: true
   silentSendMessage: true
+
+commandInstances:
+  "iteminfo": "itemdb"
+  "elsat": "sell hand"
+  "envsat": "sell inventory"
+  "help": "komutlar"
+  "kurallar": "rules"
+  "kafa": "skull"
+  "sandık": "pv"
+  "chest": "pv"
+  "kasa": "crates"
+  "kasalar": "crates"
+  "warp market": "market"
+  "meslek katıl <text>": "jobs join %arg-2%"
+  "meslek ayrıl <text>": "jobs leave %arg-2%"
+  "meslek tümündenayrıl": "jobs leaveall"

@@ -31,11 +31,14 @@ public class SecurityManager {
     public boolean checkIP(String username, String ip) {
         int userid = getUserID(username);
 
-        String QUERY = "SELECT INET_NTOA(CONV(HEX(ip), 16, 10)) AS ip FROM `website`.`xf_ip` WHERE user_id = " + userid + " ORDER BY ip_id DESC LIMIT 1";
+        String QUERY = "SELECT ip_id, INET_NTOA(CONV(HEX(ip), 16, 10)) AS ip FROM `website`.`xf_ip` WHERE user_id = " + userid + " ORDER BY ip_id DESC LIMIT 1";
         try (Connection connection = plugin.getSqlManager().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(QUERY);
             ResultSet res = statement.executeQuery();
             if (res.next()) {
+                if (res.getString("ip") == null) {
+                    return false;
+                }
                 return res.getString("ip").equals(ip);
             }
         } catch (SQLException e) {

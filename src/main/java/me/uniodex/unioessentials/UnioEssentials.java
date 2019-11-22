@@ -3,12 +3,11 @@ package me.uniodex.unioessentials;
 import lombok.Getter;
 import me.uniodex.unioessentials.commands.CommandUnioessentials;
 import me.uniodex.unioessentials.commands.CommandVote;
+import me.uniodex.unioessentials.listeners.CommandListeners;
 import me.uniodex.unioessentials.listeners.SecurityListeners;
-import me.uniodex.unioessentials.managers.ConfigManager;
-import me.uniodex.unioessentials.managers.ConfigManager.Config;
-import me.uniodex.unioessentials.managers.RconManager;
-import me.uniodex.unioessentials.managers.SQLManager;
+import me.uniodex.unioessentials.managers.*;
 import me.uniodex.unioessentials.managers.SecurityManager;
+import me.uniodex.unioessentials.managers.ConfigManager.Config;
 import me.uniodex.unioessentials.utils.Utils;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
@@ -27,6 +26,8 @@ public class UnioEssentials extends JavaPlugin {
     private RconManager rconManager;
     @Getter
     private SecurityManager securityManager;
+    @Getter
+    private CommandManager commandManager;
 
     @Getter
     private Object permission;
@@ -51,9 +52,11 @@ public class UnioEssentials extends JavaPlugin {
         sqlManager = new SQLManager(this);
         rconManager = new RconManager(this);
         securityManager = new SecurityManager(this);
+        commandManager = new CommandManager(this);
 
         // Listeners
         new SecurityListeners(this);
+        new CommandListeners(this);
 
         // Commands
         getCommand("unioessentials").setExecutor(new CommandUnioessentials(this));

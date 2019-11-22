@@ -23,6 +23,12 @@ public class SecurityListeners implements Listener {
     public void onLogin(AsyncPlayerPreLoginEvent event) {
         String username = event.getName();
         String ip = event.getAddress().getHostAddress();
+        Player player = Bukkit.getPlayerExact(username);
+
+        if (player != null && player.isOnline()) {
+            event.disallow(Result.KICK_OTHER, plugin.getMessage("security.playerIsAlreadyOnline"));
+            return;
+        }
 
         if (!plugin.getSecurityManager().isStaff(username) && !plugin.getSecurityManager().is2FAEnabled(username))
             return;

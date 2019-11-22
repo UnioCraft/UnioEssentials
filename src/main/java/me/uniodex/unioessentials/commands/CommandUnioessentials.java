@@ -50,7 +50,7 @@ public class CommandUnioessentials implements CommandExecutor {
             }
 
             if (args.length < subCommand.getMinArgs()) {
-                sender.sendMessage(plugin.getMessage("general.invalidCommand"));
+                sender.sendMessage(subCommand.getUsage());
                 return true;
             }
 
