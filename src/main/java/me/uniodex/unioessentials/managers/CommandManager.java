@@ -26,6 +26,10 @@ public class CommandManager {
         }
     }
 
+    public void addCommandInstance(String command, String instance) {
+        commands.put(command, instance);
+    }
+
     public void addCommandInstances(Map<String, String> commandList) {
         for (String command : commandList.keySet()) {
             String instance = commandList.get(command);
